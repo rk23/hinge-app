@@ -1,0 +1,21 @@
+digraph G {
+    graph [label="User Interaction Flow"; labelloc="t"; compound="true";]
+    edge [color=gray50; arrowhead=normal]
+
+    // Profile association types
+    profile_liked_you, new_profile, recommended, recycled_profile, rejected_you, blocked, blocked_you [shape="box3d"]
+
+    // Actions served to you before you've made any actions
+    profile_liked_you, new_profile, recommended, recycled_profile -> start
+
+    start -> reject, block, report, match, like 
+
+    reject -> ttl, start
+    report -> block -> blocked 
+    rejected_you, unmatch -> ttl -> recycled_profile   
+    chat, date -> report, unmatch 
+    
+    like -> start
+    match -> unmatch, report, chat
+    chat -> date -> end
+}
