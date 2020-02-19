@@ -11,7 +11,7 @@ digraph G {
     start -> reject, block, report, match, like 
 
     reject -> ttl, start
-    report -> block -> blocked 
+    report, block -> blocked 
     rejected_you, unmatch -> ttl -> recycled_profile   
     chat, date -> report, unmatch 
     

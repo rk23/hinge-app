@@ -33,6 +33,6 @@ func Init(r chi.Router, log zerolog.Logger, user UserHandler) Server {
 }
 
 func (s Server) Run() error {
-	http.ListenAndServe(":3000", s.Router)
+	http.ListenAndServe(":8000", s.Router)
 	return nil
 }
