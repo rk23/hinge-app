@@ -8,6 +8,10 @@ services:
   postgres:
     image: postgres
     restart: always
+    ports: 
+      - 5432:5432
+    volumes:
+      - ./db/hinge.sql:/docker-entrypoint-initdb.d/hinge.sql
     environment: 
       POSTGRES_PASSWORD: password
       
