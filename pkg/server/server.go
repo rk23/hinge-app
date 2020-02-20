@@ -35,6 +35,7 @@ func (s *Server) AuthCtx(next http.Handler) http.Handler {
 		// Could cache / memoize this in a production system
 		userID, err := s.Database.BasicAuth(username, apiKey)
 		if err != nil {
+			s.Log.Error().Err(err).Msg("failed to get basic auth information")
 			http.Error(w, http.StatusText(500), 500)
 			return
 		}

@@ -20,7 +20,7 @@ func main() {
 	// in environment variables
 	pg := db.Postgres{
 		Log:     log,
-		ConnStr: "dbname=hinge sslmode=disable user=postgres password=password",
+		ConnStr: "host=postgres dbname=hinge sslmode=disable user=postgres password=password",
 	}
 	err := pg.Open()
 	if err != nil {

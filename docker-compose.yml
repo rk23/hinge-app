@@ -2,14 +2,14 @@ version: '3.1'
 
 services:
   api:
-    image: hinge-api
+    image: hinge-api:latest
     ports:
       - 8000:8000
   postgres:
     image: postgres
     restart: always
     ports: 
-      - 5432:5432
+      - 5432
     volumes:
       - ./db/hinge.sql:/docker-entrypoint-initdb.d/hinge.sql
     environment: 
