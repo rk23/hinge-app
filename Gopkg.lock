@@ -8,6 +8,12 @@
   version = "v4.0.3"
 
 [[projects]]
+  name = "github.com/lib/pq"
+  packages = [".","oid","scram"]
+  revision = "99274577be97ac9b1d95a2d61d566dc9b7cc6a54"
+  version = "v1.3.0"
+
+[[projects]]
   name = "github.com/rs/zerolog"
   packages = [".","internal/cbor","internal/json"]
   revision = "f7c93dce1c970bb6e76646ef657fd55b066d0b45"
@@ -16,6 +22,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "5d617dba8697f42b1237577a6c85772c9d5516ceaa8891528c7b90ead9883856"
+  inputs-digest = "eec31a9f06922c7ab6b6b5bd584d899efd2d307afdeb91efb5e2de2fd95ab7e1"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -41,3 +41,17 @@ For testing editing a profile, try the following commands:
 `curl -vvv -H "Content-Type: application/json" --user Jon:hinge -XPUT "localhost:8000/user/profile" -d '{"last_name": "Stark"}'`
 
 `curl -vvv -H "Content-Type: application/json" --user Jon:hinge -XPUT "localhost:8000/user/profile" -d '{"first_name": ""}'`
+
+## Future Work
+### User Ratings
+
+Set up an endpoint `POST /rating` that accepts all types of ratings i.e. likes, blocks, matches, etc. See `./docs/relationship-flow.png`
+
+Using the golang.org/x/sync/errgroup package to manage goroutine syncronization, first start a Go channel with a generic rating request and push request onto that channel, returning 201 to the client. 
+
+Start a second channel batching rating requests based on the primary (initiator) user id.
+
+Start a third channel to batch upsert into the db. 
+
+Start a fourth channel for callbacks to notify the receiving user if the new relationship type has a status that allows for notifications (like vs. unmatch)
+
